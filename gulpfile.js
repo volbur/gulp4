@@ -32,13 +32,13 @@ function scripts() {
 }
 
 function styles() {
-    return src('app/' + preprocessor + '/main.' + preprocessor + '')
-    .pipe(eval(preprocessor)())
-    .pipe(concat('app.min.css'))
-    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-    .pipe(cleancss(( { level: { 1: { specialComments: 0 }}})))
-    .pipe(dest('app/css/'))
-    .pipe(browserSync.stream())
+	return src('app/' + preprocessor + '/main.' + 'scss' + '') 
+	.pipe(eval(preprocessor)()) 
+	.pipe(concat('app.min.css'))
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) 
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) 
+	.pipe(dest('app/css/')) 
+	.pipe(browserSync.stream()) 
 }
 
 function images() {
